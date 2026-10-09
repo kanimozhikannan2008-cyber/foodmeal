@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="screen-orientation" content="any">
+<title>FoodBridge</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="auth">
+  <div class="hero">
+    <svg viewBox="0 0 400 220" role="img" aria-label="A bridge carrying meals from a restaurant to a shelter">
+      <rect x="10" y="110" width="90" height="90" rx="6" fill="#1F4D3A"/><rect x="30" y="130" width="20" height="25" fill="#F2A33A"/><rect x="60" y="130" width="20" height="25" fill="#F2A33A"/>
+      <rect x="300" y="130" width="90" height="70" rx="6" fill="#C8553D"/><path d="M295 130l50-40 50 40z" fill="#8f3a28"/>
+      <path d="M100 140Q200 40 300 140" fill="none" stroke="#1F4D3A" stroke-width="8"/>
+      <path d="M100 160H300" stroke="#1F4D3A" stroke-width="10"/>
+      <g class="meal"><circle r="14" fill="#F2A33A"/><path d="M-7 0h14" stroke="#fff" stroke-width="3"/></g>
+      <path d="M0 200H400" stroke="#1F4D3A" stroke-width="3"/>
+    </svg>
+    <h1>FoodBridge</h1>
+    <p>Surplus food from kitchens, to the people who need it, before it spoils.</p>
+  </div>
+  <form id="authForm" class="card" autocomplete="on">
+    <div class="seg" id="roleTabs" role="tablist" aria-label="I am a">
+      <button type="button" data-role="donor" class="on">Food donor</button>
+      <button type="button" data-role="recipient">Food recipient</button>
+      <button type="button" data-role="partner">Delivery partner</button>
+    </div>
+    <div id="signupFields" hidden>
+      <input name="name" placeholder="Your name"><input name="org" placeholder="Organization name">
+      <input name="phone" placeholder="Mobile number" inputmode="tel"><input name="address" placeholder="Organization address">
+      <div class="row"><input name="lat" placeholder="Latitude (optional)" inputmode="decimal"><input name="lng" placeholder="Longitude (optional)" inputmode="decimal"></div>
+    </div>
+    <input name="email" type="email" placeholder="Email address" required>
+    <input name="password" type="password" placeholder="Password (6+ characters)" required minlength="6">
+    <label class="chk" id="rememberRow"><input type="checkbox" name="remember"> Remember me</label>
+    <p class="err" id="authErr" role="alert"></p>
+    <button class="primary" id="authBtn">Log in</button>
+    <p class="sub"><a href="#" id="toggle">New here? Create an account</a> · <a href="#" id="forgot">Forgot password?</a></p>
+  </form>
+  <aside class="emergency card" id="emergency"></aside>
+</section>
+
+<section id="app" hidden>
+  <header><b>FoodBridge</b><span id="who"></span><button id="logout" class="ghost">Log out</button></header>
+  <nav id="nav"></nav>
+  <main id="view"></main>
+  <div id="toast" role="status"></div>
+</section>
+<script src="app.js"></script>
+</body>
+</html>
